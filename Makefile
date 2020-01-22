@@ -1,11 +1,11 @@
 start:
-		react-scripts start
+	npx react-scripts start
 
 build:
-		react-scripts build
+	npx react-scripts build
 
 test:
-		react-scripts test
+	npx react-scripts test
 
 eject:
-		react-scripts eject
+	npx react-scripts eject
