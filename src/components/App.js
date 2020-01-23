@@ -17,8 +17,8 @@ class App extends Component {
     const activePlace = this.state.activePlace;
     return (
       <div>
-      <Card>
-        <Card.Header className="text-right">Simple Weather App</Card.Header>
+      <Card >
+        <Card.Header>Simple Weather App</Card.Header>
     </Card>
       <Container  id="left-tabs-example">
           <Row>
@@ -39,7 +39,7 @@ class App extends Component {
                 ))}
               </Nav>
             </Col>
-            <Col md={2} sm={2}>
+            <Col md={7} sm={1}>
               <WeatherDisplay key={activePlace} zip={cities[activePlace].zip} />
             </Col>
           </Row>
