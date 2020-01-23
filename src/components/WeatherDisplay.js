@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Spinner } from 'react-bootstrap'
 
 class WeatherDisplay extends Component {
   constructor() {
@@ -14,19 +15,25 @@ class WeatherDisplay extends Component {
       zip +
       "&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=imperial";
     fetch(URL).then((result) => result.json()).then((json) => {
-      this.setState({weatherData: json});
+      this.setState({ weatherData: json });
     });
   }
 
   render() {
     const weatherData = this.state.weatherData;
     if (!weatherData) {
-      return <div>Loading</div>;
+      return (
+        <div>
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </div>
+      );
     }
     const weather = weatherData.weather[0];
     const iconURL = `http://openweathermap.org/img/w/${weather.icon}.png`;
     const fahrenheitToCelsius = (temp) => {
-      const newTemp = (temp - 32) * 5/9;
+      const newTemp = (temp - 32) * 5 / 9;
       return newTemp.toFixed();
     };
 
